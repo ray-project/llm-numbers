@@ -120,6 +120,9 @@ Running an LLM query through a GPU is very high latency: it may take, say, 5 sec
 
 The amount of memory you need is directly proportional to the maximum number of tokens you want to generate. So for example, if you want to generate outputs of up to 512 tokens (about 380 words), you need 512MB. No big deal you might say – I have 24GB to spare, what’s 512MB? Well, if you want to run bigger batches it starts to add up. So if you want to do batches of 16, you need 8GB of space. There are some techniques being developed that overcome this, but it’s still a real issue. 
 
+# Cheatsheet
+
+<img width="1112" alt="Screenshot 2023-05-17 at 10 16 47 AM" src="https://github.com/ray-project/llm-numbers/assets/9677264/1b20e85d-fe99-4af1-9e6a-0ea775f56485">
 
 # Next Steps
 
