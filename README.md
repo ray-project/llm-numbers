@@ -116,18 +116,17 @@ The amount of memory you need is directly proportional to the maximum number of 
 
 # Next Steps
 
-Review the up-to-date metrics referenced in this blog in the following Github repo.  \
+Review the up-to-date metrics referenced in this blog in the following [Github repo](https://github.com/ray-project/llm-numbers).  \
  \
-See our earlier blog series on solving Generative AI infrastructure and using LangChain with Ray. \
+See our earlier [blog series on solving Generative AI infrastructure](https://www.anyscale.com/blog/ray-common-production-challenges-for-generative-ai-infrastructure) and [using LangChain with Ray](https://www.anyscale.com/blog/llm-open-source-search-engine-langchain-ray). \
  \
-If you are interested in learning more about Ray, see Ray.io and Docs.Ray.io. \
+If you are interested in learning more about Ray, see [Ray.io](http://ray.io/) and [Docs.Ray.io](http://docs.ray.io/). \
  \
-To connect with the Ray community join #LLM on the Ray Slack or our Discuss forum. \
+To connect with the Ray community join #LLM on the [Ray Slack](https://docs.google.com/forms/d/e/1FAIpQLSfAcoiLCHOguOm8e7Jnn-JJdZaCxPGjgVCvFijHB5PLaQLeig/viewform) or our [Discuss forum](https://discuss.ray.io/). \
  \
-If you are interested in our Ray hosted service for ML Training and Serving, see Anyscale.com/Platform and click the 'Try it now' button
+If you are interested in our Ray hosted service for ML Training and Serving, see [Anyscale.com/Platform ](http://www.anyscale.com/platform)and click the 'Try it now' button
 
-Ray Summit 2023: If you are interested to learn much more about how Ray can be used to build performant and scalable LLM applications and fine-tune/train/serve LLMs on Ray, join Ray Summit on September 18-20th! We have a set of great keynote speakers including John Schulman from OpenAI and Aidan Gomez from Cohere, community and tech talks about Ray as well as practical training focused on LLMs.
-
+**Ray Summit 2023:** If you are interested to learn much more about how Ray can be used to build performant and scalable LLM applications and fine-tune/train/serve LLMs on Ray, join [Ray Summit](https://raysummit.anyscale.com/) on September 18-20th! We have a set of great keynote speakers including John Schulman from OpenAI and Aidan Gomez from Cohere, community and tech talks about Ray as well as [practical training focused on LLMs](https://github.com/ray-project/ray-educational-materials/blob/main/NLP_workloads/Text_generation/LLM_finetuning_and_batch_inference.ipynb).
 
 <!-- Footnotes themselves at the bottom. -->
 ## Notes
