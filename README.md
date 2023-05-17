@@ -48,7 +48,7 @@ Knowing this ratio is important because most billing is done in tokens, and the 
 
 ## Prices[^2]
 
-Prices are of course subject to change, but given how expensive LLMs are to operate, the numbers in this section are critical. We use OpenAI for the numbers here, but prices from other providers you should check out (Anthropic, Cohere) are in the same ballpark. 
+Prices are of course subject to change, but given how expensive LLMs are to operate, the numbers in this section are critical. We use OpenAI for the numbers here, but prices from other providers you should check out ([Anthropic](https://cdn2.assets-servd.host/anthropic-website/production/images/model_pricing_may2023.pdf), [Cohere](https://cohere.com/pricing)) are in the same ballpark. 
 
 
 ### ~50: Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
