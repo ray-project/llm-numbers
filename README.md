@@ -122,7 +122,7 @@ The amount of memory you need is directly proportional to the maximum number of 
 
 # Cheatsheet
 
-<img width="1112" alt="Screenshot 2023-05-17 at 10 16 47 AM" src="https://github.com/ray-project/llm-numbers/assets/9677264/1b20e85d-fe99-4af1-9e6a-0ea775f56485">
+<img width="1097" alt="Screenshot 2023-05-17 at 1 46 09 PM" src="https://github.com/ray-project/llm-numbers/assets/9677264/5d40c6a3-84d7-436a-8fc4-a8d58008765d">
 
 # Next Steps
 
