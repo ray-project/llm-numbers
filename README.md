@@ -23,6 +23,13 @@ Conversion notes:
 
 When I was at Google, there was a document put together by Jeff Dean, the legendary engineer, called [Numbers every Engineer should know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
 
+### Notes on the Github version
+
+Last updates: 2023-05-17
+
+If you feel there's an issue with the accuracy of the numbers, please file an issue. Think there are more numbers that should be in this doc? Let us know or file a PR. 
+
+We are thinking the next thing we should add here is some stats on tokens per second of different models. 
 
 ### Prompts
 
@@ -116,8 +123,6 @@ The amount of memory you need is directly proportional to the maximum number of 
 
 # Next Steps
 
-Review the up-to-date metrics referenced in this blog in the following [Github repo](https://github.com/ray-project/llm-numbers).  \
- \
 See our earlier [blog series on solving Generative AI infrastructure](https://www.anyscale.com/blog/ray-common-production-challenges-for-generative-ai-infrastructure) and [using LangChain with Ray](https://www.anyscale.com/blog/llm-open-source-search-engine-langchain-ray). \
  \
 If you are interested in learning more about Ray, see [Ray.io](http://ray.io/) and [Docs.Ray.io](http://docs.ray.io/). \
@@ -132,10 +137,10 @@ If you are interested in our Ray hosted service for ML Training and Serving, see
 ## Notes
 
 [^1]:
-     Based on experimentation with GPT-3.5-Turbo using a suite of prompts on . 
+     Based on experimentation with GPT-3.5-Turbo using a suite of prompts on 2023-05-08. 
 
 [^2]:
-     Retrieved from [http://openai.com/pricing](http://openai.com/pricing) on . 
+     Retrieved from [http://openai.com/pricing](http://openai.com/pricing) on 2023-05-08. 
 
 [^3]:
       **GPT-4**: 6c/1k tokens for the prompt, 12c/1k tokens for the generation (32,000 window version, 8,000 window version is half that). **GPT-3.5 Turbo**: 0.2c/1k tokens. 
