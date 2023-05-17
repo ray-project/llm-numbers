@@ -41,9 +41,9 @@ It’s important to remember that you pay by the token for responses. This means
 
 ### 1.3: Average tokens per word
 
-LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. 
+LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750 word document will be about 1000 tokens. 
 
-Knowing this ratio is important because most billing is done in tokens, and the LLM’s context window size is also defined in tokens.
+Knowing this ratio is important because most billing is done in tokens, and the LLM’s context window size is also defined in tokens. 
 
 
 ## Prices[^2]
