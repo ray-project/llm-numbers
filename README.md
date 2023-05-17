@@ -41,7 +41,7 @@ It’s important to remember that you pay by the token for responses. This means
 
 ### 1.3: Average tokens per word
 
-LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750 word document will be about 1000 tokens. 
+LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750 word document in English will be about 1000 tokens. For languages other than English, the tokens per word increases depending on their commonality in OpenAI's training corpus.
 
 Knowing this ratio is important because most billing is done in tokens, and the LLM’s context window size is also defined in tokens. 
 
