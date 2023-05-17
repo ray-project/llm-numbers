@@ -101,7 +101,7 @@ It may seem strange, but it’s important to know the amount of memory different
 
 ### 2x number of parameters: Typical GPU memory requirements of an LLM for serving
 
-For example, if you have a 7 billion parameter model, it takes about 14GB of GPU space. This is because most of the time, one 16-bit float (or 2 bytes) is required per parameter. There’s usually no need to go beyond 16-bit accuracy, and most of the time when you go to 8-bit accuracy there is too much loss of resolution. Of course there are efforts to reduce this, notably llama.cpp which runs a 13 billion parameter model on a 6GB GPU by quantizing aggressively down to 4 bits (and 8 bits without too much impact), but that’s atypical. 
+For example, if you have a 7 billion parameter model, it takes about 14GB of GPU space. This is because most of the time, one 16-bit float (or 2 bytes) is required per parameter. There’s usually no need to go beyond 16-bit accuracy, and most of the time when you go to 8-bit accuracy you start to lose resolution (though that may be acceptable in some cases). Of course there are efforts to reduce this, notably llama.cpp which runs a 13 billion parameter model on a 6GB GPU by quantizing aggressively down to 4 bits (and 8 bits without too much impact), but that’s atypical. 
 
 
 ### ~1GB: Typical GPU memory requirements of an embedding model
