@@ -39,7 +39,7 @@ We are thinking the next thing we should add here is some stats on tokens per se
 It’s important to remember that you pay by the token for responses. This means that asking an LLM to be concise can save you a lot of money. This can be broadened beyond simply appending “be concise” to your prompt: if you are using GPT-4 to come up with 10 alternatives, maybe ask it for 5 and keep the other half of the money. 
 
 
-### 0.75: Token to word ratio 
+### 1.3: Average tokens per word
 
 LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. 
 
