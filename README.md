@@ -63,7 +63,9 @@ This means it is way cheaper to look something up in a vector store than to ask 
 
 ### 10: Cost Ratio of OpenAI embedding to Self-Hosted embedding 
 
-Note: this number is sensitive to load and embedding batch size, so please consider this approximate. In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using HuggingFace’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
+> Note: this number is sensitive to load and embedding batch size, so please consider this approximate. 
+
+In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using HuggingFace’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
 
 
 ### 6: Cost Ratio of OpenAI base vs fine tuned model queries
