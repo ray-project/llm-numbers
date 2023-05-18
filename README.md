@@ -1,27 +1,6 @@
-<!-----
-
-Yay, no errors, warnings, or alerts!
-
-Conversion time: 0.472 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β34
-* Wed May 17 2023 09:47:33 GMT-0700 (PDT)
-* Source doc: Numbers every LLM developer should know
------>
-
 # Numbers every LLM Developer should know
 
-When I was at Google, there was a document put together by [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean), the legendary engineer, called [Numbers every Engineer should know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
+At Google, there was a document put together by [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean), the legendary engineer, called [Numbers every Engineer should know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
 
 ## Notes on the Github version
 
@@ -39,7 +18,7 @@ We are thinking the next thing we should add here is some stats on tokens per se
 It’s important to remember that you pay by the token for responses. This means that asking an LLM to be concise can save you a lot of money. This can be broadened beyond simply appending “be concise” to your prompt: if you are using GPT-4 to come up with 10 alternatives, maybe ask it for 5 and keep the other half of the money. 
 
 
-### 1.3: Average tokens per word
+### 1.3:1 -- Average tokens per word
 
 LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750 word document will be about 1000 tokens. 
 
@@ -51,27 +30,27 @@ Knowing this ratio is important because most billing is done in tokens, and the 
 Prices are of course subject to change, but given how expensive LLMs are to operate, the numbers in this section are critical. We use OpenAI for the numbers here, but prices from other providers you should check out (Anthropic, Cohere) are in the same ballpark. 
 
 
-### ~50: Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
+### ~50:1 -- Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
 
 What this means is that for many practical applications, it’s much better to use GPT-4 for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
 
 
-### 5: Cost Ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding 
+### 5:1 -- Cost Ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding 
 
 This means it is way cheaper to look something up in a vector store than to ask an LLM to generate it. E.g. “What is the capital of Delaware?” when looked up in an neural information retrieval system costs about 5x[^4] less than if you asked GPT-3.5-Turbo. The cost difference compared to GPT-4 is a whopping 250x! 
 
 
-### 10: Cost Ratio of OpenAI embedding to Self-Hosted embedding 
+### 10:1 -- Cost Ratio of OpenAI embedding to Self-Hosted embedding 
 
 Note: this number is sensitive to load and embedding batch size, so please consider this approximate. In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using HuggingFace’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
 
 
-### 6: Cost Ratio of OpenAI base vs fine tuned model queries
+### 6:1 -- Cost Ratio of OpenAI fine tuned vs base model queries
 
 It costs you 6 times as much to serve a fine tuned model as it does the base model on OpenAI. This is pretty exorbitant, but might make sense because of the possible multi-tenancy of base models. It also means it is far more cost effective to tweak the prompt for a base model than to fine tune a customized model. 
 
 
-### 1: Cost Ratio of Self-Hosted base vs fine-tuned model queries 
+### 1:1 -- Cost Ratio of Self-Hosted base vs fine-tuned model queries 
 
 If you’re self hosting a model, then it more or less costs the same amount to serve a fine tuned model as it does to serve a base one: the models have the same number of parameters. 
 
