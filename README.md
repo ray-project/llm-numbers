@@ -32,7 +32,7 @@ Prices are of course subject to change, but given how expensive LLMs are to oper
 
 ### ~50:1 -- Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
 
-What this means is that for many practical applications, it’s much better to use GPT-4 for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
+What this means is that for many practical applications, it’s much better to use GPT-3.5 Turbo for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
 
 
 ### 5:1 -- Cost Ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding 
