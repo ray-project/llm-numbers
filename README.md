@@ -1,6 +1,6 @@
 # Numbers every LLM Developer should know
 
-At Google, there was a document put together by [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean), the legendary engineer, called [Numbers every Engineer should know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
+At Google, there was a document put together by [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean), the legendary engineer, called [Numbers Every Engineer Should Know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
 
 ## Notes on the Github version
 
@@ -13,14 +13,14 @@ We are thinking the next thing we should add here is some stats on tokens per se
 ## Prompts
 
 
-### 40-90%[^1]: Amount saved by appending “Be Concise” to your prompt
+### 40-90%[^1]: Amount saved by appending “be concise” to your prompt
 
-It’s important to remember that you pay by the token for responses. This means that asking an LLM to be concise can save you a lot of money. This can be broadened beyond simply appending “be concise” to your prompt: if you are using GPT-4 to come up with 10 alternatives, maybe ask it for 5 and keep the other half of the money. 
+It’s important to remember that you pay by the token for responses. This means that asking an LLM to be concise can save you a lot of money. This can be broadened beyond simply appending “be concise” to your prompt: if you are using GPT-4 to come up with 10 alternatives, maybe ask it for 5 and keep the other half of the money.
 
 
-### 1.3:1 -- Average tokens per word
+### 4:3 -- Average ratio of tokens to words
 
-LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750 word document in English will be about 1000 tokens. For languages other than English, the tokens per word increases depending on their commonality in the LLM's embedding corpus.
+LLMs operate on tokens. Tokens are words or sub-parts of words, so “eating” might be broken into two tokens “eat” and “ing”. A 750-word document in English will be about 1000 tokens. For languages other than English, the tokens per word increases depending on their commonality in the LLM's embedding corpus.
 
 Knowing this ratio is important because most billing is done in tokens, and the LLM’s context window size is also defined in tokens. 
 
@@ -32,32 +32,32 @@ Prices are of course subject to change, but given how expensive LLMs are to oper
 
 ### ~50:1 -- Cost ratio of GPT-4 to GPT-3.5 Turbo[^3] 
 
-What this means is that for many practical applications, it’s much better to use GPT-4 for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
+What this means is that for many practical applications, it’s much better to use GPT-4 for things like generation and then use that data to fine-tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
 
 
-### 5:1 -- Cost ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding lookup
+### 5:1 -- Cost ratio of generation of text using GPT-3.5-Turbo vs OpenAI ADA v2 embedding
 
-This means it is way cheaper to look something up in a vector store than to ask an LLM to generate it. E.g. “What is the capital of Delaware?” when looked up in a neural information retrieval system costs about 5x[^4] less than if you asked GPT-3.5-Turbo. The cost difference compared to GPT-4 is a whopping 250x! 
+This means it is way cheaper to look something up in a vector store than to ask an LLM to generate it. E.g. “What is the capital of Delaware?” when looked up in a neural information retrieval system costs about 5 times[^4] less than if you asked GPT-3.5-Turbo. The cost difference compared to GPT-4 is a whopping 250x! 
 
 
-### 10:1 -- Cost ratio of OpenAI embedding to self-Hosted embedding 
+### 10:1 -- Cost ratio of OpenAI embedding to self-hosted embedding 
 
 > Note: this number is sensitive to load and embedding batch size, so please consider this approximate. 
 
-In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using Hugging Face’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees).
+In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using Hugging Face’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). At that rate and that node type, it is 10 times cheaper to self-host embeddings (and that is before you start to think about things like ingress and egress fees).
 
 
-### 6:1 -- Cost ratio of OpenAI fine tuned vs base model queries
+### 6:1 -- Cost ratio of OpenAI fine-tuned vs base model queries
 
-It costs you 6 times as much to serve a fine tuned model as it does the base model on OpenAI. This is pretty exorbitant, but might make sense because of the possible multi-tenancy of base models. It also means it is far more cost effective to tweak the prompt for a base model than to fine tune a customized model. 
-
-
-### 1:1 -- Cost ratio of Self-Hosted base vs fine-tuned model queries 
-
-If you’re self hosting a model, then it more or less costs the same amount to serve a fine tuned model as it does to serve a base one: the models have the same number of parameters. 
+It costs you 6 times as much to serve a fine-tuned model as it does the base model on OpenAI. This is pretty exorbitant, but might make sense because of the possible multi-tenancy of base models. It also means it is far more cost effective to tweak the prompt for a base model than to fine-tune a customized model. 
 
 
-## Training and Fine Tuning
+### 1:1 -- Cost ratio of self-hosted base vs fine-tuned model queries 
+
+If you’re self hosting a model, then it more or less costs the same amount to serve a fine-tuned model as it does to serve a base one: the models have the same number of parameters. 
+
+
+## Training and fine-tuning
 
 
 ### ~$1 million: Cost to train a 13 billion parameter model on 1.4 trillion tokens
@@ -65,17 +65,17 @@ If you’re self hosting a model, then it more or less costs the same amount to 
 The [LLaMa paper](https://arxiv.org/abs/2302.13971) mentions it took them 21 days to train LLaMa using 2048 GPUs A100 80GB GPUs. We considered training our own model on the Red Pajama training set, then we ran the numbers. The above is assuming everything goes right, nothing crashes, and the calculation succeeds on the first time, etc. Plus it involves the coordination of 2048 GPUs. That’s not something most companies can do (shameless plug time: of course, we at Anyscale can – that’s our [bread and butter](https://www.anyscale.com/blog/training-175b-parameter-language-models-at-1000-gpu-scale-with-alpa-and-ray)! Contact us if you’d like to learn more). The point is that training your own LLM is possible, but it’s not cheap. And it will literally take days to complete each run. Much cheaper to use a pre-trained model. 
 
 
-### &lt; 0.001: Cost ratio of fine tuning vs training from scratch
+### &lt; 0.001: Cost ratio of fine-tuning vs training from scratch
 
 This is a bit of a generalization, but the cost of fine tuning is negligible. We showed for example that you can fine tune a [6B parameter model for about $7](https://www.anyscale.com/blog/how-to-fine-tune-and-serve-llms-simply-quickly-and-cost-effectively-using). Even at OpenAI’s rate for its most expensive fine-tunable model, Davinci, it is 3c per 1000 tokens. That means to fine tune on the entire works of Shakespeare (about 1 million words), you’re looking at $40[^5]. However, fine tuning is one thing and training from scratch is another … 
 
 
-## GPU Memory
+## GPU memory
 
-If you’re self-hosting a model, it’s really important to understand GPU memory because LLMs push your GPU’s memory to the limit. The following statistics are specifically about inference. You need considerably more memory for training or fine tuning. 
+If you’re self-hosting a model, it’s really important to understand GPU memory because LLMs push your GPU’s memory to the limit. The following statistics are specifically about inference. You need considerably more memory for training or fine-tuning. 
 
 
-### V100: 16GB, A10G: 24GB, A100: 40/80GB: GPU Memory Capacities
+### V100: 16GB, A10G: 24GB, A100: 40/80GB: GPU memory capacities
 
 It may seem strange, but it’s important to know the amount of memory different types of GPUs have. This will cap the number of parameters your LLM can have. Generally, we like to use A10Gs because they cost $1.50 to $2 per hour each at AWS on-demand prices and have 24G of GPU memory, vs the A100s which will run you about $5 each at AWS on-demand prices. 
 
