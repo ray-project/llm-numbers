@@ -30,29 +30,29 @@ Knowing this ratio is important because most billing is done in tokens, and the 
 Prices are of course subject to change, but given how expensive LLMs are to operate, the numbers in this section are critical. We use OpenAI for the numbers here, but prices from other providers you should check out ([Anthropic](https://cdn2.assets-servd.host/anthropic-website/production/images/model_pricing_may2023.pdf), [Cohere](https://cohere.com/pricing)) are in the same ballpark. 
 
 
-### ~50:1 -- Cost Ratio of GPT-4 to GPT-3.5 Turbo[^3] 
+### ~50:1 -- Cost ratio of GPT-4 to GPT-3.5 Turbo[^3] 
 
 What this means is that for many practical applications, it’s much better to use GPT-4 for things like generation and then use that data to fine tune a smaller model. It is roughly 50 times cheaper to use GPT-3.5-Turbo than GPT-4 (the “roughly” is because GPT-4 charges differently for the prompt and the generated output)  – so you really need to check on how far you can get with GPT-3.5-Turbo. GPT-3.5-Turbo is more than enough for tasks like summarization for example. 
 
 
-### 5:1 -- Cost Ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding 
+### 5:1 -- Cost ratio of generation of text using GPT-3.5-Turbo vs OpenAI embedding lookup
 
-This means it is way cheaper to look something up in a vector store than to ask an LLM to generate it. E.g. “What is the capital of Delaware?” when looked up in an neural information retrieval system costs about 5x[^4] less than if you asked GPT-3.5-Turbo. The cost difference compared to GPT-4 is a whopping 250x! 
+This means it is way cheaper to look something up in a vector store than to ask an LLM to generate it. E.g. “What is the capital of Delaware?” when looked up in a neural information retrieval system costs about 5x[^4] less than if you asked GPT-3.5-Turbo. The cost difference compared to GPT-4 is a whopping 250x! 
 
 
-### 10:1 -- Cost Ratio of OpenAI embedding to Self-Hosted embedding 
+### 10:1 -- Cost ratio of OpenAI embedding to self-Hosted embedding 
 
 > Note: this number is sensitive to load and embedding batch size, so please consider this approximate. 
 
-In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using Hugging Face’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees). 
+In our blog post, we noted that using a g4dn.4xlarge (on-demand price: $1.20/hr) we were able to embed at about 9000 tokens per second using Hugging Face’s SentenceTransformers (which are pretty much as good as OpenAI’s embeddings). Doing some basic math of that rate and that node type indicates it is considerably cheaper (factor of 10 cheaper) to self-host embeddings (and that is before you start to think about things like ingress and egress fees).
 
 
-### 6:1 -- Cost Ratio of OpenAI fine tuned vs base model queries
+### 6:1 -- Cost ratio of OpenAI fine tuned vs base model queries
 
 It costs you 6 times as much to serve a fine tuned model as it does the base model on OpenAI. This is pretty exorbitant, but might make sense because of the possible multi-tenancy of base models. It also means it is far more cost effective to tweak the prompt for a base model than to fine tune a customized model. 
 
 
-### 1:1 -- Cost Ratio of Self-Hosted base vs fine-tuned model queries 
+### 1:1 -- Cost ratio of Self-Hosted base vs fine-tuned model queries 
 
 If you’re self hosting a model, then it more or less costs the same amount to serve a fine tuned model as it does to serve a base one: the models have the same number of parameters. 
 
