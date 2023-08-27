@@ -1,6 +1,6 @@
 # Numbers every LLM Developer should know
 
-中文: https://github.com/NascentCore/llm-numbers-cn
+[中文](https://github.com/NascentCore/llm-numbers-cn)
 
 At Google, there was a document put together by [Jeff Dean](https://en.wikipedia.org/wiki/Jeff_Dean), the legendary engineer, called [Numbers every Engineer should know](http://brenocon.com/dean_perf.html). It’s really useful to have a similar set of numbers for LLM developers to know that are useful for back-of-the envelope calculations. Here we share particular numbers we at Anyscale use, why the number is important and how to use it to your advantage. 
 
