@@ -69,7 +69,7 @@ The [LLaMa paper](https://arxiv.org/abs/2302.13971) mentions it took them 21 day
 
 ### &lt; 0.001: Cost ratio of fine tuning vs training from scratch
 
-This is a bit of a generalization, but the cost of fine tuning is negligible. We showed for example that you can fine tune a [6B parameter model for about $7](https://www.anyscale.com/blog/how-to-fine-tune-and-serve-llms-simply-quickly-and-cost-effectively-using). Even at OpenAI’s rate for its most expensive fine-tunable model, Davinci, it is 3c per 1000 tokens. That means to fine tune on the entire works of Shakespeare (about 1 million words), you’re looking at $40[^5]. However, fine tuning is one thing and training from scratch is another … 
+This is a bit of a generalization, but the cost of fine tuning is negligible. We showed for example that you can fine tune a [6B parameter model for about $7](https://www.anyscale.com/blog/how-to-fine-tune-and-serve-llms). Even at OpenAI’s rate for its most expensive fine-tunable model, Davinci, it is 3c per 1000 tokens. That means to fine tune on the entire works of Shakespeare (about 1 million words), you’re looking at $40[^5]. However, fine tuning is one thing and training from scratch is another … 
 
 
 ## GPU Memory
